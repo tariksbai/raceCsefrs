@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/HP/Downloads/intervenants-race.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervenants - RACE</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./Intervenants - RACE_files/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Intervenants - RACE_files/css2" rel="stylesheet">
+
+    <style>
+		:root {
+			--primary-orange: #144300a6;
+			--primary-dark: #555555;
+			--accent-orange: #D98555;
+			--soft-bg: #ffffff;
+			--card-bg: #ffffff;
+			--text-dark: #2d2d2d;
+			--text-muted: #6b6b6b;
+			--border-color: #E8DDD5;
+		}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--soft-bg) 0%, #fff 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Background decorative elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(198, 114, 64, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 133, 85, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 15s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -30px) rotate(5deg); }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 30px 20px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .hero-section {
+            padding: 40px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; width: 150px; }
+            50% { opacity: 1; width: 300px; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.15s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Search and Filter Section */
+        .filter-section {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 55px 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 8px 30px rgba(198, 114, 64, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-orange);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 11px 24px;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(198, 114, 64, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(198, 114, 64, 0.2);
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-orange);
+            color: white;
+            border-color: var(--primary-orange);
+            box-shadow: 0 4px 20px rgba(198, 114, 64, 0.3);
+        }
+
+        /* Members Grid */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        /* Member Card */
+        .member-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+            animation: fadeInScale 0.6s ease-out both;
+        }
+
+        .member-card:nth-child(1) { animation-delay: 0.05s; }
+        .member-card:nth-child(2) { animation-delay: 0.1s; }
+        .member-card:nth-child(3) { animation-delay: 0.15s; }
+        .member-card:nth-child(4) { animation-delay: 0.2s; }
+        .member-card:nth-child(5) { animation-delay: 0.25s; }
+        .member-card:nth-child(6) { animation-delay: 0.3s; }
+        .member-card:nth-child(7) { animation-delay: 0.35s; }
+        .member-card:nth-child(8) { animation-delay: 0.4s; }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--accent-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(198, 114, 64, 0.15);
+            border-color: var(--border-color);
+        }
+
+        .member-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-image-wrapper {
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+
+        .member-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.08);
+        }
+
+        .member-country-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 7px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .member-info {
+            padding: 26px 22px;
+        }
+
+        .member-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .member-position {
+            color: var(--primary-orange);
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        .member-bio {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .member-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+			display: none;
+            padding: 5px 12px;
+            background: var(--soft-bg);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--primary-orange);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .empty-state i {
+            font-size: 3.5rem;
+            color: var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 20px 15px 40px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .filter-buttons {
+                gap: 7px;
+            }
+
+            .filter-btn {
+                padding: 9px 18px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 30px 0 20px;
+            }
+
+            .search-input {
+                padding: 13px 50px 13px 18px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">REPRÉSENTANTS DES PAYS MEMBRES
+
+</h1>
+
+        </section>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un représentant...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <div class="filter-buttons" id="filterButtons"><button class="filter-btn active" data-filter="all">Tous</button><button class="filter-btn" data-filter="burkina">Burkina Faso</button><button class="filter-btn" data-filter="burundi">Burundi</button><button class="filter-btn" data-filter="benin">Bénin</button><button class="filter-btn" data-filter="cameroun">Cameroun</button><button class="filter-btn" data-filter="comores">Comores</button><button class="filter-btn" data-filter="congo">Congo</button><button class="filter-btn" data-filter="cotedivoire">Côte d'Ivoire</button><button class="filter-btn" data-filter="gabon">Gabon</button><button class="filter-btn" data-filter="ghana">Ghana</button><button class="filter-btn" data-filter="ONU">ONU</button><button class="filter-btn" data-filter="malawi">Malawi</button><button class="filter-btn" data-filter="maroc">Maroc</button><button class="filter-btn" data-filter="mauritanie">Mauritanie</button><button class="filter-btn" data-filter="nigeria">Nigeria</button><button class="filter-btn" data-filter="rwanda">Rwanda</button><button class="filter-btn" data-filter="senegal">Sénégal</button><button class="filter-btn" data-filter="tanzanie">Tanzanie</button><button class="filter-btn" data-filter="tchad">Tchad</button></div>
+        </div>
+
+        <!-- Members Grid -->
+        <div class="members-grid" id="membersGrid" style="display: grid;">
+                    <div class="member-card" data-category="maroc">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/Screenshot-2025-10-28-at-09.12.17.png" alt="Rahma Bourqia" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Rahma%20Bourqia&#39;">
+                            <div class="member-country-badge">Maroc</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Rahma Bourqia</h3>
+                            <div class="member-position">Présidente du Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique</div>
+                            <div class="member-tags"><span class="tag">Inaugurales</span></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="member-card" data-category="maroc">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/Screenshot-2025-10-23-at-15.40.04.webp" alt="Fouad Chafiqi" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Fouad%20Chafiqi&#39;">
+                            <div class="member-country-badge">Maroc</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Fouad Chafiqi</h3>
+                            <div class="member-position">Secrétaire général, Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique</div>
+                            <div class="member-tags"><span class="tag">Inaugurales</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="maroc">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/ait-mansour.png" alt="Hicham Ait Mansour" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Hicham%20Ait%20Mansour&#39;">
+                            <div class="member-country-badge">Maroc</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Hicham Ait Mansour</h3>
+                            <div class="member-position">Directeur de l'Instance Nationale d'Évaluation auprès du Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique</div>
+                            <div class="member-tags"><span class="tag">Inaugurales</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="nigeria">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/1.jpeg" alt="Salisu Shehu" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Salisu%20Shehu&#39;">
+                            <div class="member-country-badge">Nigeria</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Salisu Shehu</h3>
+                            <div class="member-position">Secrétaire exécutif, Conseil nigérian pour la recherche et le développement en éducation</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="benin">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/2.jpeg" alt="Noël Ahonagnon Gbaguidi" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=No%C3%ABl%20Ahonagnon%20Gbaguidi&#39;">
+                            <div class="member-country-badge">Bénin</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Noël Ahonagnon Gbaguidi</h3>
+                            <div class="member-position">Président, Conseil national de l'éducation</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="benin">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/3.jpeg" alt="Moussiliou Moustapha" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Moussiliou%20Moustapha&#39;">
+                            <div class="member-country-badge">Bénin</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Moussiliou Moustapha</h3>
+                            <div class="member-position">Membre du Collège, Conseiller, Commission Qualité et Règlementation, Conseil national de l'éducation</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="mauritanie">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/4.jpeg" alt="Brahim Vall Mohamed Lemine" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Brahim%20Vall%20Mohamed%20Lemine&#39;">
+                            <div class="member-country-badge">Mauritanie</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Brahim Vall Mohamed Lemine</h3>
+                            <div class="member-position">Président, Haut Conseil de l'Éducation</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="malawi">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/5.jpeg" alt="Ambumulire Nellie Phiri" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Ambumulire%20Nellie%20Phiri&#39;">
+                            <div class="member-country-badge">Malawi</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Ambumulire Nellie Phiri</h3>
+                            <div class="member-position">Présidente, Conseil National de l'Enseignement Supérieur</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="rwanda">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/6.jpeg" alt="Edward Kadozi" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Edward%20Kadozi&#39;">
+                            <div class="member-country-badge">Rwanda</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Edward Kadozi</h3>
+                            <div class="member-position">Directeur Général, Conseil national de l'enseignement supérieur</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="senegal">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/7.jpeg" alt="Alioune Badara Niane" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Alioune%20Badara%20Niane&#39;">
+                            <div class="member-country-badge">Sénégal</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Alioune Badara Niane</h3>
+                            <div class="member-position">Chef de Division, Autorité nationale d'assurance qualité de l'enseignement supérieur, de la recherche et de l'innovation</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="tanzanie">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/8.jpeg" alt="Charles D. Kihampa" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Charles%20D.%20Kihampa&#39;">
+                            <div class="member-country-badge">Tanzanie</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Charles D. Kihampa</h3>
+                            <div class="member-position">Secrétaire exécutif, Commission tanzanienne pour les universités</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="gabon">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/9.jpeg" alt="Jean-Christophe Moundjigui" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Jean-Christophe%20Moundjigui&#39;">
+                            <div class="member-country-badge">Gabon</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Jean-Christophe Moundjigui</h3>
+                            <div class="member-position">Secrétaire Permanent, Conseil national de l'éducation, de la formation et de la Recherche</div>
+                            <div class="member-tags"><span class="tag">Session 1</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="cameroun">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/10.jpeg" alt="Stephen Ambe Mforteh" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Stephen%20Ambe%20Mforteh&#39;">
+                            <div class="member-country-badge">Cameroun</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Stephen Ambe Mforteh</h3>
+                            <div class="member-position">Chef de centre, Centre national de l'éducation</div>
+                            <div class="member-tags"><span class="tag">Session 2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="burkina">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/11.jpeg" alt="Samuel Paré" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Samuel%20Par%C3%A9&#39;">
+                            <div class="member-country-badge">Burkina Faso</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Samuel Paré</h3>
+                            <div class="member-position">Secrétaire général, Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation, pour le Haut Conseil national de la Recherche scientifique et de l'innovation</div>
+                            <div class="member-tags"><span class="tag">Session 2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="burundi">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/12.jpeg" alt="Léonidas Ndayizeye" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=L%C3%A9onidas%20Ndayizeye&#39;">
+                            <div class="member-country-badge">Burundi</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Léonidas Ndayizeye</h3>
+                            <div class="member-position">Secrétaire exécutif permanent, Commission Nationale de l'Enseignement Supérieur</div>
+                            <div class="member-tags"><span class="tag">Session 2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="ghana">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/13.jpeg" alt="Ahmed Jinapor Abdulai" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Ahmed%20Jinapor%20Abdulai&#39;">
+                            <div class="member-country-badge">Ghana</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Ahmed Jinapor Abdulai</h3>
+                            <div class="member-position">Directeur Général, Commission de l'Enseignement Supérieur</div>
+                            <div class="member-tags"><span class="tag">Session 2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="cotedivoire">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/14.jpeg" alt="Vafi Doumbia" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Vafi%20Doumbia&#39;">
+                            <div class="member-country-badge">Côte d'Ivoire</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Vafi Doumbia</h3>
+                            <div class="member-position">Directeur Général de l'Enseignement Supérieur, Ministère de l'Enseignement Supérieur et de la Recherche Scientifique, pour le conseil consultatif de l'enseignement supérieur et de la recherche scientifique</div>
+                            <div class="member-tags"><span class="tag">Session 2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="tchad">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/15.jpeg" alt="Ngarmadjal Gami" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Ngarmadjal%20Gami&#39;">
+                            <div class="member-country-badge">Tchad</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Ngarmadjal Gami</h3>
+                            <div class="member-position">Secrétaire exécutif, Comité National pour l'Éducation et la Formation en Liaison avec l'Emploi</div>
+                            <div class="member-tags"><span class="tag">Session 3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="comores">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/16.jpeg" alt="Souef Kazouine" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Souef%20Kazouine&#39;">
+                            <div class="member-country-badge">Comores</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Souef Kazouine</h3>
+                            <div class="member-position">Directeur général de l'alphabétisation et de la promotion des langues, Ministère de l'Éducation nationale, pour le Groupe Local des Partenaires de l'Éducation</div>
+                            <div class="member-tags"><span class="tag">Session 3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="congo">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/17.jpeg" alt="Augustin Nombo" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Augustin%20Nombo&#39;">
+                            <div class="member-country-badge">Congo</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Augustin Nombo</h3>
+                            <div class="member-position">Directeur général, Institut national de recherche et d'action pédagogiques</div>
+                            <div class="member-tags"><span class="tag">Session 3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="burkina">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/18.jpeg" alt="Issa Abdou Moumoula" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Issa%20Abdou%20Moumoula&#39;">
+                            <div class="member-country-badge">Burkina Faso</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Issa Abdou Moumoula</h3>
+                            <div class="member-position">Membre, Académie Nationale des Sciences, des Arts et des Lettres</div>
+                            <div class="member-tags"><span class="tag">Session 3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="rwanda">
+                        <div class="member-image-wrapper">
+                            <img src="./Intervenants - RACE_files/19.jpeg" alt="Eugène Uwimana" class="member-image" onerror="this.src=&#39;https://via.placeholder.com/500x500/f5f5f5/999999?text=Eug%C3%A8ne%20Uwimana&#39;">
+                            <div class="member-country-badge">Rwanda</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Eugène Uwimana</h3>
+                            <div class="member-position">Chef de programme, Conseil de l'Enseignement et de la Formation Techniques et Professionnel</div>
+                            <div class="member-tags"><span class="tag">Session 3</span></div>
+                        </div>
+                    </div>
+                </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>Aucun résultat</h3>
+            <p>Aucun intervenant ne correspond à votre recherche</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Données des intervenants de la conférence
+            const membersData = [
+                // Allocution & Conférences inaugurales
+                {
+                    id: 1,
+                    name: "Rahma Bourqia",
+                    position: "Présidente du Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique",
+                    country: "Maroc",
+                    category: "maroc",
+                    session: "Inaugurales",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/10/Screenshot-2025-10-28-at-09.12.17.png"
+                },
+
+                {
+                    id: 4,
+                    name: "Fouad Chafiqi",
+                    position: "Secrétaire général, Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique",
+                    country: "Maroc",
+                    category: "maroc",
+                    session: "Inaugurales",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/10/Screenshot-2025-10-23-at-15.40.04.webp"
+                },
+                {
+                    id: 5,
+                    name: "Hicham Ait Mansour",
+                    position: "Directeur de l'Instance Nationale d'Évaluation auprès du Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique",
+                    country: "Maroc",
+                    category: "maroc",
+                    session: "Inaugurales",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2023/10/ait-mansour.png"
+                },
+                // Session 1
+                {
+                    id: 6,
+                    name: "Salisu Shehu",
+                    position: "Secrétaire exécutif, Conseil nigérian pour la recherche et le développement en éducation",
+                    country: "Nigeria",
+                    category: "nigeria",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/1.jpeg"
+                },
+                {
+                    id: 7,
+                    name: "Noël Ahonagnon Gbaguidi",
+                    position: "Président, Conseil national de l'éducation",
+                    country: "Bénin",
+                    category: "benin",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/2.jpeg"
+                },
+                {
+                    id: 8,
+                    name: "Moussiliou Moustapha",
+                    position: "Membre du Collège, Conseiller, Commission Qualité et Règlementation, Conseil national de l'éducation",
+                    country: "Bénin",
+                    category: "benin",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/3.jpeg"
+                },
+                {
+                    id: 9,
+                    name: "Brahim Vall Mohamed Lemine",
+                    position: "Président, Haut Conseil de l'Éducation",
+                    country: "Mauritanie",
+                    category: "mauritanie",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/4.jpeg"
+                },
+                {
+                    id: 10,
+                    name: "Ambumulire Nellie Phiri",
+                    position: "Présidente, Conseil National de l'Enseignement Supérieur",
+                    country: "Malawi",
+                    category: "malawi",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/5.jpeg"
+                },
+                {
+                    id: 11,
+                    name: "Edward Kadozi",
+                    position: "Directeur Général, Conseil national de l'enseignement supérieur",
+                    country: "Rwanda",
+                    category: "rwanda",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/6.jpeg"
+                },
+                {
+                    id: 12,
+                    name: "Alioune Badara Niane",
+                    position: "Chef de Division, Autorité nationale d'assurance qualité de l'enseignement supérieur, de la recherche et de l'innovation",
+                    country: "Sénégal",
+                    category: "senegal",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/7.jpeg"
+                },
+                {
+                    id: 13,
+                    name: "Charles D. Kihampa",
+                    position: "Secrétaire exécutif, Commission tanzanienne pour les universités",
+                    country: "Tanzanie",
+                    category: "tanzanie",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/8.jpeg"
+                },
+                {
+                    id: 14,
+                    name: "Jean-Christophe Moundjigui",
+                    position: "Secrétaire Permanent, Conseil national de l'éducation, de la formation et de la Recherche",
+                    country: "Gabon",
+                    category: "gabon",
+                    session: "Session 1",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/9.jpeg"
+                },
+                // Session 2
+                {
+                    id: 15,
+                    name: "Stephen Ambe Mforteh",
+                    position: "Chef de centre, Centre national de l'éducation",
+                    country: "Cameroun",
+                    category: "cameroun",
+                    session: "Session 2",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/10.jpeg"
+                },
+                {
+                    id: 16,
+                    name: "Samuel Paré",
+                    position: "Secrétaire général, Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation, pour le Haut Conseil national de la Recherche scientifique et de l'innovation",
+                    country: "Burkina Faso",
+                    category: "burkina",
+                    session: "Session 2",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/11.jpeg"
+                },
+                {
+                    id: 17,
+                    name: "Léonidas Ndayizeye",
+                    position: "Secrétaire exécutif permanent, Commission Nationale de l'Enseignement Supérieur",
+                    country: "Burundi",
+                    category: "burundi",
+                    session: "Session 2",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/12.jpeg"
+                },
+                {
+                    id: 18,
+                    name: "Ahmed Jinapor Abdulai",
+                    position: "Directeur Général, Commission de l'Enseignement Supérieur",
+                    country: "Ghana",
+                    category: "ghana",
+                    session: "Session 2",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/13.jpeg"
+                },
+                {
+                    id: 19,
+                    name: "Vafi Doumbia",
+                    position: "Directeur Général de l'Enseignement Supérieur, Ministère de l'Enseignement Supérieur et de la Recherche Scientifique, pour le conseil consultatif de l'enseignement supérieur et de la recherche scientifique",
+                    country: "Côte d'Ivoire",
+                    category: "cotedivoire",
+                    session: "Session 2",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/14.jpeg"
+                },
+                // Session 3
+                {
+                    id: 20,
+                    name: "Ngarmadjal Gami",
+                    position: "Secrétaire exécutif, Comité National pour l'Éducation et la Formation en Liaison avec l'Emploi",
+                    country: "Tchad",
+                    category: "tchad",
+                    session: "Session 3",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/15.jpeg"
+                },
+                {
+                    id: 21,
+                    name: "Souef Kazouine",
+                    position: "Directeur général de l'alphabétisation et de la promotion des langues, Ministère de l'Éducation nationale, pour le Groupe Local des Partenaires de l'Éducation",
+                    country: "Comores",
+                    category: "comores",
+                    session: "Session 3",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/16.jpeg"
+                },
+                {
+                    id: 22,
+                    name: "Augustin Nombo",
+                    position: "Directeur général, Institut national de recherche et d'action pédagogiques",
+                    country: "Congo",
+                    category: "congo",
+                    session: "Session 3",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/17.jpeg"
+                },
+                {
+                    id: 23,
+                    name: "Issa Abdou Moumoula",
+                    position: "Membre, Académie Nationale des Sciences, des Arts et des Lettres",
+                    country: "Burkina Faso",
+                    category: "burkina",
+                    session: "Session 3",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/18.jpeg"
+                },
+                {
+                    id: 24,
+                    name: "Eugène Uwimana",
+                    position: "Chef de programme, Conseil de l'Enseignement et de la Formation Techniques et Professionnel",
+                    country: "Rwanda",
+                    category: "rwanda",
+                    session: "Session 3",
+                    image: "https://africa2025.csefrs.ma/wp-content/uploads/2025/11/19.jpeg"
+                }
+            ];
+
+            // State
+            let currentFilter = 'all';
+            let searchQuery = '';
+
+            // Initialize
+            document.addEventListener('DOMContentLoaded', function() {
+                generateFilters();
+                renderMembers();
+                initializeEventListeners();
+                adjustIframeHeight();
+            });
+
+            // Generate dynamic filters from unique countries
+            function generateFilters() {
+                const countries = [...new Set(membersData.map(m => m.country))].sort();
+                const filterButtons = document.getElementById('filterButtons');
+
+                let filtersHTML = '<button class="filter-btn active" data-filter="all">Tous</button>';
+                countries.forEach(country => {
+                    const categorySlug = membersData.find(m => m.country === country).category;
+                    filtersHTML += `<button class="filter-btn" data-filter="${categorySlug}">${country}</button>`;
+                });
+
+                filterButtons.innerHTML = filtersHTML;
+            }
+
+            // Render members
+            function renderMembers() {
+                const grid = document.getElementById('membersGrid');
+                const emptyState = document.getElementById('emptyState');
+
+                if (!grid || !emptyState) return;
+
+                const filteredMembers = membersData.filter(member => {
+                    const matchesFilter = currentFilter === 'all' || member.category === currentFilter;
+                    const matchesSearch = searchQuery === '' ||
+                        member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        member.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        member.country.toLowerCase().includes(searchQuery.toLowerCase());
+
+                    return matchesFilter && matchesSearch;
+                });
+
+                if (filteredMembers.length === 0) {
+                    grid.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    setTimeout(adjustIframeHeight, 100);
+                    return;
+                }
+
+                grid.style.display = 'grid';
+                emptyState.style.display = 'none';
+
+                grid.innerHTML = filteredMembers.map(member => `
+                    <div class="member-card" data-category="${member.category}">
+                        <div class="member-image-wrapper">
+                            <img src="${member.image}" alt="${member.name}" class="member-image" onerror="this.src='https://via.placeholder.com/500x500/f5f5f5/999999?text=${encodeURIComponent(member.name)}'">
+                            <div class="member-country-badge">${member.country}</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">${member.name}</h3>
+                            <div class="member-position">${member.position}</div>
+                            ${member.session ? `<div class="member-tags"><span class="tag">${member.session}</span></div>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+
+                setTimeout(adjustIframeHeight, 300);
+            }
+
+            // Initialize event listeners
+            function initializeEventListeners() {
+                // Use event delegation for dynamically generated filter buttons
+                document.getElementById('filterButtons').addEventListener('click', function(e) {
+                    if (e.target.classList.contains('filter-btn')) {
+                        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        currentFilter = e.target.dataset.filter;
+                        renderMembers();
+                    }
+                });
+
+                // Search input
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.addEventListener('input', function(e) {
+                        searchQuery = e.target.value;
+                        renderMembers();
+                    });
+                }
+            }
+
+            // Adjust iframe height (if in iframe) - Communication avec la page parent
+            function adjustIframeHeight() {
+                try {
+                    const height = Math.max(
+                        document.body.scrollHeight,
+                        document.body.offsetHeight,
+                        document.documentElement.clientHeight,
+                        document.documentElement.scrollHeight,
+                        document.documentElement.offsetHeight
+                    );
+
+                    if (window.parent && window.parent !== window) {
+                        window.parent.postMessage({
+                            type: 'iframe-resize',
+                            height: height
+                        }, '*');
+                    }
+                } catch (e) {
+                    console.log('Iframe height adjustment:', e);
+                }
+            }
+
+            // Listen for window resize
+            window.addEventListener('resize', adjustIframeHeight);
+
+            // Re-adjust on images loaded
+            window.addEventListener('load', function() {
+                setTimeout(adjustIframeHeight, 500);
+            });
+        })();
+    </script>
+
+
+</body></html>
