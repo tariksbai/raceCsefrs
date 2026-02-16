@@ -31,6 +31,9 @@
                     <td>{{ $permission->description ?? '—' }}</td>
                     <td>
                         <div class="d-flex gap-1">
+                            <a href="{{ route('admin.permissions.show', $permission) }}" class="btn btn-sm btn-outline-info" title="Voir">
+                                <i class="bi bi-eye"></i>
+                            </a>
                             <a href="{{ route('admin.permissions.edit', $permission) }}" class="btn btn-sm btn-outline-warning" title="Modifier">
                                 <i class="bi bi-pencil"></i>
                             </a>

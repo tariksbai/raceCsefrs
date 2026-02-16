@@ -64,7 +64,7 @@ class PublicFormController extends Controller
         ]);
 
         foreach ($form->fields as $field) {
-            $value = $request->input('field_' . $field->id);
+            $value = $request->input('responses.' . $field->id);
 
             if ($value !== null) {
                 InternalFormResponseValue::create([
