@@ -370,7 +370,7 @@
                 <span>Formulaires Internes</span>
             </a>
 
-            <a href="{{ route('admin.responses.index', ['formId' => 'all']) }}"
+            <a href="{{ route('admin.internal-forms.index') }}"
                class="nav-link {{ request()->routeIs('admin.responses.*') ? 'active' : '' }}">
                 <i class="bi bi-chat-square-text"></i>
                 <span>R&eacute;ponses</span>

@@ -39,6 +39,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Inscription réussie. Bienvenue sur la plateforme !');
+        return redirect()->route('admin.dashboard')->with('success', 'Inscription réussie. Bienvenue sur la plateforme !');
     }
 }

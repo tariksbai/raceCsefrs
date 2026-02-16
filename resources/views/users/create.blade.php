@@ -68,7 +68,7 @@
                     <select name="user_type" id="user_type" class="form-select @error('user_type') is-invalid @enderror" required>
                         <option value="">-- S&eacute;lectionner --</option>
                         <option value="admin" {{ old('user_type') === 'admin' ? 'selected' : '' }}>Administrateur</option>
-                        <option value="user" {{ old('user_type') === 'user' ? 'selected' : '' }}>Utilisateur</option>
+                        <option value="citizen" {{ old('user_type') === 'citizen' ? 'selected' : '' }}>Utilisateur</option>
                     </select>
                     @error('user_type')
                         <div class="invalid-feedback">{{ $message }}</div>
