@@ -1,0 +1,112 @@
+@extends('layouts.app')
+
+@section('title', 'Ajouter un formulaire interne')
+
+@section('page-title', 'Ajouter un formulaire interne')
+
+@section('content')
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Ajouter un formulaire interne</h2>
+    <a href="{{ route('admin.internal-forms.index') }}" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Retour
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="{{ route('admin.internal-forms.store') }}">
+            @csrf
+
+            <div class="row">
+                {{-- Titre --}}
+                <div class="col-md-6 mb-3">
+                    <label for="title" class="form-label">Titre <span class="text-danger">*</span></label>
+                    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
+                    @error('title')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Groupe --}}
+                <div class="col-md-6 mb-3">
+                    <label for="group_id" class="form-label">Groupe</label>
+                    <select name="group_id" id="group_id" class="form-select @error('group_id') is-invalid @enderror">
+                        <option value="">-- Sélectionner un groupe --</option>
+                        @foreach($groups as $group)
+                            <option value="{{ $group->id }}" {{ old('group_id') == $group->id ? 'selected' : '' }}>{{ $group->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('group_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Description --}}
+                <div class="col-12 mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                    @error('description')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Statut --}}
+                <div class="col-md-4 mb-3">
+                    <label for="status" class="form-label">Statut <span class="text-danger">*</span></label>
+                    <select name="status" id="status" class="form-select @error('status') is-invalid @enderror" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Brouillon</option>
+                        <option value="active" {{ old('status') === 'active' ? 'selected' : '' }}>Actif</option>
+                        <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Inactif</option>
+                    </select>
+                    @error('status')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Public --}}
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <div class="form-check me-4">
+                        <input class="form-check-input" type="checkbox" name="is_public" id="is_public" value="1" {{ old('is_public') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="is_public">Formulaire public</label>
+                    </div>
+                </div>
+
+                {{-- Anonyme --}}
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="allow_anonymous" id="allow_anonymous" value="1" {{ old('allow_anonymous') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="allow_anonymous">Autoriser les réponses anonymes</label>
+                    </div>
+                </div>
+
+                {{-- Date début --}}
+                <div class="col-md-6 mb-3">
+                    <label for="start_date" class="form-label">Date de début</label>
+                    <input type="datetime-local" name="start_date" id="start_date" class="form-control @error('start_date') is-invalid @enderror" value="{{ old('start_date') }}">
+                    @error('start_date')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Date fin --}}
+                <div class="col-md-6 mb-3">
+                    <label for="end_date" class="form-label">Date de fin</label>
+                    <input type="datetime-local" name="end_date" id="end_date" class="form-control @error('end_date') is-invalid @enderror" value="{{ old('end_date') }}">
+                    @error('end_date')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <hr>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle me-1"></i> Enregistrer
+                </button>
+                <a href="{{ route('admin.internal-forms.index') }}" class="btn btn-secondary">Annuler</a>
+            </div>
+        </form>
+    </div>
+</div>
+@endsection
